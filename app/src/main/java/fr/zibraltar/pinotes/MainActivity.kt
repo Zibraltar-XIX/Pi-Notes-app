@@ -5,20 +5,36 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import android.widget.Button
+import androidx.fragment.app.Fragment
+import fr.zibraltar.pinotes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-            // Associez le bouton ici
-            val button: Button = findViewById(R.id.button1)
-            insets
+        enableEdgeToEdge() // Active la gestion automatique des barres système
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
+        replaceFragment(HomeFragment())
+
+        binding.bottomNav.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.home_menu -> replaceFragment(HomeFragment())
+                R.id.profile_menu -> replaceFragment(HomeFragment())
+                R.id.setting_menu -> replaceFragment(HomeFragment())
+            }
+            true
         }
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frameLayout, fragment)
+            .commit()
     }
 }
