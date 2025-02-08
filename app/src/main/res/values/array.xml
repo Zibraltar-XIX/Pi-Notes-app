@@ -1,0 +1,16 @@
+<resources>
+    <string-array name="srv_choose">
+        <item>Pi Notes</item>
+        <item>Proton</item>
+        <item>Google</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="lang_choose">
+        <item>Français</item>
+        <item>English</item>
+    </string-array>
+    <string-array name="lang_choose_val">
+        <item>fr</item>
+        <item>en</item>
+    </string-array>
+</resources>

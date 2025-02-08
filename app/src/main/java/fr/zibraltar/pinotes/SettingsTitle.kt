@@ -8,7 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import android.widget.Button
 import android.widget.TextView
 
-class HomeFragment : Fragment(R.layout.home) {
+class SettingsTitle : Fragment(R.layout.settings_title) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -17,14 +17,5 @@ class HomeFragment : Fragment(R.layout.home) {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        val textView = view.findViewById<TextView>(R.id.title)
-        textView.text = "Pi Notes"
-
-        val button: Button = view.findViewById(R.id.button)
-        button.setOnClickListener {
-            textView.text = "La daronne de Nathan"
-        }
-
     }
 }

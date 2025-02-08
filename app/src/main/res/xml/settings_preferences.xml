@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="General">
+        <ListPreference
+                android:key="lang_choose"
+                android:title="Language"
+                android:dialogTitle="Choose your language"
+                android:entries="@array/lang_choose"
+                android:entryValues="@array/lang_choose_val"
+                android:summary="%s"/>
+        <SwitchPreferenceCompat
+                android:key="switch_pref"
+                android:title="Activer l'option"
+                android:summary="Ceci active une fonctionnalité" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Syncronisation">
+        <SwitchPreferenceCompat
+                android:key="enable_sync"
+                android:title="Enable sync"
+                android:summary="Syncronise notes on cloud" />
+        <ListPreference
+                android:key="srv_choose"
+                android:title="Cloud Server"
+                android:dialogTitle="Choose your server"
+                android:entries="@array/srv_choose"
+                android:entryValues="@array/srv_choose"
+                android:summary="%s"/>
+
+        <!-- Champ de texte -->
+        <EditTextPreference
+                android:key="custom_srv"
+                android:title="Server name"
+                android:dialogTitle="Entry your custom server name"
+                android:summary="%s"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
